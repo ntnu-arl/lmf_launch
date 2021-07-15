@@ -1,0 +1,18 @@
+<launch>
+    <arg name="fcu_url" default="/dev/ttyACM0:921600" />
+    <arg name="gcs_url" default="" />
+    <arg name="tgt_system" default="1" />
+    <arg name="tgt_component" default="1" />
+    <arg name="log_output" default="screen" />
+    <arg name="fcu_protocol" default="v2.0" />
+    <arg name="respawn_mavros" default="false" />
+
+    <node name="acc_command_converter" pkg="rotors_control" type="acc_command_converter" output="screen">
+        <remap from="odometry" to="msf_core/odometry" />
+        <param name="use_vehicle_frame" value="true" /> <!-- goal and acc commands are in vehicle frame -->
+        <param name="use_yaw_stabilize" value="false" />
+        <param name="fixed_height" value="true" />
+        <param name="swap_yaw_rate" value="true" />
+        <rosparam command="load" file="$(find lmf_launch)/config/lmf_controller.yaml" />
+    </node>    
+</launch>

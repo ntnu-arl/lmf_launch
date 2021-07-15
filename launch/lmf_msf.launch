@@ -1,0 +1,10 @@
+<launch>
+    <node name="lmf_msf_fusion" pkg="msf_updates" type="pose_sensor" respawn="true">
+        <remap from="msf_updates/transform_input" to="/t265/transform_stamped/sample_throttle" /> 
+        <remap from="msf_core/imu_state_input" to="/mavros/imu/data_raw" />
+        <rosparam file="$(find lmf_launch)/config/lmf_msf_config.yaml" />
+        <param name="capability_group" value="Core" />
+    </node>
+
+    <node name="lmf_msf_fusion_init_service" pkg="rosservice" type="rosservice" args="call --wait lmf_msf_fusion/pose_sensor/initialize_msf_scale 1.0" />
+</launch>

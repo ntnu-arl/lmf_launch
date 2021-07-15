@@ -1,0 +1,26 @@
+<launch>
+    <arg name="record" default="true"/>
+    <arg name="record_path"/>
+    <node pkg="rosbag" type="record" name="recorder" output="screen" respawn="false" if="$(arg record)" args="--split --size=2048 -o $(arg record_path)/LMF
+        /tf_static
+        /tf
+        /msf_core/odometry
+        /t265/odom/sample
+        /d455/depth/color/points
+        /d455/depth/image_rect_raw
+        /filtered_image
+        /d455/color/image_raw
+        /d455/accel/sample
+        /d455/gyro/sample
+        /mavros/distance_sensor/tfmini
+        /mavros/imu/data
+        /mavros/imu/data_filtered
+        /mavros/imu/data_raw
+        /mavros/setpoint_raw/attitude
+        /mavros/state
+        /mavros/battery
+        /command/roll_pitch_yawrate_thrust
+        /trajectory
+        /cmd_velocity
+    "/>
+</launch>

@@ -1,0 +1,8 @@
+<launch>
+    <node pkg="tf" type="static_transform_publisher" name="world_to_world_vio" respawn="true" args="0.07 0 0.07 0 0 0 /world /world_vio 10"/>
+    <node pkg="tf" type="static_transform_publisher" name="world_vio_to_t265" respawn="true" args="0 0 0 0 0 0 /world_vio /t265_odom_frame 10"/>
+
+    <node pkg="tf" type="static_transform_publisher" name="state_to_d265" respawn="true" args="0.07 0 0.07 0 -0.3826834 0 0.9238795 /state /t265_link_custom 10"/>
+    <node pkg="tf" type="static_transform_publisher" name="t265_to_d455" respawn="true" args="0 0 -0.03 0 0.78539816339 0 /t265_link_custom /d455_link 10"/>
+    <node pkg="tf" type="static_transform_publisher" name="state_to_tfmini" respawn="true" args="0 0.045 0 0 0 0 /state /tfmini_custom 10"/>
+</launch>

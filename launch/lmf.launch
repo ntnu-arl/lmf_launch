@@ -1,0 +1,29 @@
+<launch>
+    <arg name="record" default="true"/>
+    <arg name="record_path" value="/home/arl/ROSBAGS" />
+
+    <!-- Transforms -->
+    <include file="$(find lmf_launch)/launch/lmf_static_tf_ros.launch" />
+
+    <!-- Avionics Communication -->
+    <include file="$(find lmf_launch)/launch/lmf_px4.launch" /> <!-- add nice value? -->
+    <include file="$(find lmf_launch)/launch/lmf_mavros_control_interface.launch" />
+
+    <!-- Sensors -->
+    <include file="$(find lmf_launch)/launch/lmf_d455_t265_driver.launch" />
+    
+    <!-- Estimation -->
+    <include file="$(find lmf_launch)/launch/lmf_msf.launch" />
+
+    <!-- Control -->
+
+
+    <!-- Planning -->
+    <include file="$(find lmf_launch)/launch/lmf_planning.launch" />
+
+    <!-- Recording -->
+    <include if="$(arg record)" file="$(find lmf_launch)/launch/lmf_bag_rec.launch" >
+        <arg name="record_path" value="$(arg record_path)"/>
+    </include>    
+    UI, procedure
+</launch>
