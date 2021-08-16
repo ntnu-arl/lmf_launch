@@ -9,7 +9,6 @@
         /d455/depth/color/points
         /d455/depth/image_rect_raw
         /filtered_image
-        /d455/color/image_raw
         /d455/accel/sample
         /d455/gyro/sample
         /mavros/distance_sensor/tfmini
@@ -22,5 +21,8 @@
         /command/roll_pitch_yawrate_thrust
         /trajectory
         /cmd_velocity
+        /goal
     "/>
 </launch>
+        <!-- /d455/depth/color/points
+        /d455/depth/image_rect_raw -->
