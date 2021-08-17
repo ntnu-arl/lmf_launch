@@ -19,18 +19,18 @@ acc_y_max: 2.0
 alpha_y: 0.5
 
 Kp_z: 1.5 #1.3 #0.5 #0.05
-Kd_z: 1.0 #0.7 #0.01
+Kd_z: 0.7 #1.0 #0.7 #0.01
 Ki_z: 0.0 #0.0
 Kp_vel_z: 1.0 
 Kd_vel_z: 0.0
 Ki_vel_z: 1.3
 acc_z_max: 2.0
-alpha_z: 0.0
+alpha_z: 0.3 #0.0
 
 use_vehicle_frame: true # Acceleration command is in vehicle frame (true) or world frame (false)
 use_yaw_stabilize: false # true: stabilizes yaw angle around 0 or false: control yaw_rate based on command/rate_thrust -->
 K_yaw: 1.8 # used only if use_yaw_stabilize = true
 yaw_rate_limit: 60.0 # deg/s # used only if use_yaw_stabilize = true
 
-mass: 1.224 #1.15 # 1.224
-z_static: 1.0
+mass: 1.244 #1.15 # 1.224
+z_static: 1.2 #1.0
