@@ -19,7 +19,7 @@
     <include file="$(find lmf_launch)/launch/lmf_controller.launch" />
 
     <!-- Planning -->
-    <!-- <include file="$(find lmf_launch)/launch/lmf_planning.launch" /> -->
+    <include file="$(find lmf_launch)/launch/lmf_planning.launch" />
 
     <!-- Recording -->
     <include if="$(arg record)" file="$(find lmf_launch)/launch/lmf_bag_rec.launch" >
