@@ -6,9 +6,6 @@
         /tf
         /msf_core/odometry
         /t265/odom/sample
-        /d455/depth/color/points
-        /d455/depth/image_rect_raw
-        /filtered_image
         /d455/accel/sample
         /d455/gyro/sample
         /mavros/distance_sensor/tfmini
@@ -23,6 +20,28 @@
         /cmd_velocity
         /goal
     "/>
+    <!-- <node pkg="topic_tools" type="drop" name="t265_fisheye_drop" respawn="false" args="/t265/fisheye1/image_raw/compressed 5 6 /t265/fisheye1/image_raw_skip/compressed" /> -->
 </launch>
-        <!-- /d455/depth/color/points
-        /d455/depth/image_rect_raw -->
+        <!--         
+        /tf_static
+        /tf
+        /msf_core/odometry
+        /t265/odom/sample
+        /d455/color/image_raw/compressed
+        /t265/fisheye1/image_raw_skip/compressed
+        /d455/depth/image_rect_raw
+        /d455/aligned_depth_to_color/image_raw
+        /d455/depth/color/points
+        /d455/accel/sample
+        /d455/gyro/sample
+        /mavros/distance_sensor/tfmini
+        /mavros/imu/data
+        /mavros/imu/data_filtered
+        /mavros/imu/data_raw
+        /mavros/setpoint_raw/attitude
+        /mavros/state
+        /mavros/battery
+        /command/roll_pitch_yawrate_thrust
+        /trajectory
+        /cmd_velocity
+        /goal -->

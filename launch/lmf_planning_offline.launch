@@ -1,0 +1,4 @@
+<launch>
+	<node pkg="deep_collision_predictor" type="evaluate_planner_realtime_uncertainty_paper_visualization.py" name="evaluate_planner_realtime_uncertainty" output="screen" >
+	</node>
+</launch>
