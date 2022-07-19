@@ -1,12 +1,4 @@
 <launch>
-    <arg name="fcu_url" default="/dev/ttyACM0:921600" />
-    <arg name="gcs_url" default="" />
-    <arg name="tgt_system" default="1" />
-    <arg name="tgt_component" default="1" />
-    <arg name="log_output" default="screen" />
-    <arg name="fcu_protocol" default="v2.0" />
-    <arg name="respawn_mavros" default="false" />
-
     <node name="lmf_control_node" pkg="lmf_controller" type="lmf_control_node" output="screen">
         <remap from="odometry" to="msf_core/odometry" />
         <remap from="range_sensor" to="/mavros/distance_sensor/tfmini" />

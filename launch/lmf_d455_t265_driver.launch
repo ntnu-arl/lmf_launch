@@ -1,23 +1,23 @@
 <launch>
-    <env name="ROSCONSOLE_CONFIG_FILE" value="$(find realsense2_camera)/log_config/custom_rosconsole.conf"/>
+    <!-- <env name="ROSCONSOLE_CONFIG_FILE" value="$(find realsense2_camera)/log_config/custom_rosconsole.conf"/> -->
     
-    <arg name="device_type_camera1"    		default="t265"/>
+    <arg name="device_type_camera1"         default="t265"/>
     <arg name="device_type_camera2"    		default="d4.5"/>		<!-- Note: using regular expression. match D435, D435i, D415... -->
-    <arg name="serial_no_camera1"    			default=""/>
-    <arg name="serial_no_camera2"    			default=""/>
-    <arg name="camera1"              			default="t265"/>
-    <arg name="camera2"              			default="d455"/>
+    <arg name="serial_no_camera1"    	    default=""/>
+    <arg name="serial_no_camera2"    		default=""/>
+    <arg name="json_file_path"              default=""/>
+    <arg name="camera1"              		default="t265"/>
+    <arg name="camera2"              		default="d455"/>
     <arg name="tf_prefix_camera1"         default="$(arg camera1)"/>
     <arg name="tf_prefix_camera2"         default="$(arg camera2)"/>
     <arg name="initial_reset"             default="false"/>
     <arg name="enable_fisheye"            default="true"/>
-    <arg name="color_width"               default="640"/>
-    <arg name="color_height"              default="480"/>
+    <arg name="color_width"               default="480"/>
+    <arg name="color_height"              default="270"/>    
     <arg name="color_fps"                 default="15"/>
     <arg name="depth_width"               default="480"/>
     <arg name="depth_height"              default="270"/>
     <arg name="depth_fps"                 default="15"/> <!-- change to 5 later -->
-    <!-- <arg name="depth_fps"                 default="5"/> -->
     <arg name="clip_distance"             default="-2"/>
     <arg name="topic_odom_in"             default="odom_in"/>
     <arg name="calib_odom_file"           default=""/>
@@ -42,6 +42,7 @@
         <include file="$(find realsense2_camera)/launch/includes/nodelet.launch.xml">
         <arg name="device_type"           value="$(arg device_type_camera2)"/>
         <arg name="serial_no"         value="$(arg serial_no_camera2)"/>
+        <arg name="json_file_path"    value="$(arg json_file_path)"/>
         <arg name="tf_prefix"		          value="$(arg tf_prefix_camera2)"/>
         <arg name="initial_reset"         value="$(arg initial_reset)"/>
         <arg name="align_depth"           value="true"/>
