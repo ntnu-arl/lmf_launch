@@ -1,16 +1,24 @@
 <launch>
     <arg name="record" default="true"/>
-    <arg name="record_path" value="/home/arl/ROSBAGS" />
+    <arg name="record_path" value="/home/arl/ROSBAGS/Arducopter" />
+    <arg name="set_origin_start_delay" default="15.0" />
 
     <!-- Transforms -->
     <include file="$(find lmf_launch)/launch/lmf_static_tf_ros.launch" />
 
     <!-- Avionics Communication -->
-    <include file="$(find lmf_launch)/launch/lmf_px4.launch" /> <!-- add nice value? -->
-    <include file="$(find lmf_launch)/launch/lmf_mavros_control_interface.launch" />
+    <!-- <include file="$(find lmf_launch)/launch/lmf_px4.launch" /> -->
+    <include file="$(find lmf_launch)/launch/lmf_apm.launch" />
+    <!-- <include file="$(find lmf_launch)/launch/lmf_mavros_control_interface.launch" /> -->
 
     <!-- Sensors -->
     <include file="$(find lmf_launch)/launch/lmf_d455_t265_driver.launch" />
+    <include file="$(find lmf_launch)/launch/lmf_t265_tf_to_mavros.launch" >
+        <arg name="target_frame_id" value="world"/>
+        <arg name="source_frame_id" value="state"/>
+        <!-- <arg name="pitch_cam" value="0.7854"/> -->
+    </include>
+    <node pkg="vision_to_mavros" name="set_origin" type="set_origin.py" output="screen" launch-prefix="bash -c 'sleep $(arg set_origin_start_delay); $0 $@' "/>
     
     <!-- Estimation -->
     <include file="$(find lmf_launch)/launch/lmf_msf.launch" />
@@ -19,7 +27,7 @@
     <include file="$(find lmf_launch)/launch/lmf_controller.launch" />
 
     <!-- Planning -->
-    <include file="$(find lmf_launch)/launch/lmf_planning.launch" />
+    <!-- <include file="$(find lmf_launch)/launch/lmf_planning.launch" /> -->
 
     <!-- Recording -->
     <include if="$(arg record)" file="$(find lmf_launch)/launch/lmf_bag_rec.launch" >
