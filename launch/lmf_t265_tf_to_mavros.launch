@@ -3,7 +3,7 @@
     <!-- This node will launch frame conversion from vision pose (tf) to mavros pose -->
     <arg name="target_frame_id"   default="/camera_odom_frame" />
     <arg name="source_frame_id"   default="/camera_link" />
-    <arg name="output_rate"   default="30" />
+    <arg name="output_rate"   default="50" />
     <arg name="roll_cam"   default="0" />
     <arg name="pitch_cam"   default="0" />
     <arg name="yaw_cam"   default="0" />

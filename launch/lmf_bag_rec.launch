@@ -13,7 +13,8 @@
         /d455/depth/color/points
         /d455/accel/sample
         /d455/gyro/sample
-        /mavros/distance_sensor/tfmini
+        /mavros/rangefinder/rangefinder
+        /mavros/local_position/odom
         /mavros/imu/data
         /mavros/imu/data_filtered
         /mavros/imu/data_raw

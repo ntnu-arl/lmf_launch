@@ -1,6 +1,9 @@
 plugin_blacklist:
 # common
+- adsb
 - actuator_control
+- cam_imu_sync
+- camera
 - ftp
 - safety_area
 - hil
@@ -12,6 +15,36 @@ plugin_blacklist:
 - vibration
 - vision_speed_estimate
 - wheel_odometry
+- fake_gps
+- companion_process
+- esc_info
+- esc_status
+- esc_telemetry
+- estimator_status
+- extended_state
+- geofence
+- global_position
+- gps_input
+- gps_rtk
+- gpsstatus
+- landing_target
+- mag_calibration
+- log_transfer
+- mount_control
+- nav_controller_output
+- onboard_computer
+- param
+- play_tune
+- radio_status
+- rallypoint
+- statustext
+- terrain
+- time_reference
+- timesync_status
+- trajectory
+- tunnel
+- vfr_hud
+- wind_estimation
 
 plugin_whitelist:
 #- 'sys_*'

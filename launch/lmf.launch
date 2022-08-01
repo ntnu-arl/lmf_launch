@@ -1,7 +1,7 @@
 <launch>
     <arg name="record" default="true"/>
     <arg name="record_path" value="/home/arl/ROSBAGS/Arducopter" />
-    <arg name="set_origin_start_delay" default="15.0" />
+    <arg name="set_origin_start_delay" default="10.0" />
 
     <!-- Transforms -->
     <include file="$(find lmf_launch)/launch/lmf_static_tf_ros.launch" />
@@ -21,7 +21,7 @@
     <node pkg="vision_to_mavros" name="set_origin" type="set_origin.py" output="screen" launch-prefix="bash -c 'sleep $(arg set_origin_start_delay); $0 $@' "/>
     
     <!-- Estimation -->
-    <include file="$(find lmf_launch)/launch/lmf_msf.launch" />
+    <!-- <include file="$(find lmf_launch)/launch/lmf_msf.launch" /> --> <!-- use odom from Ardupilot EKF3 instead -->
 
     <!-- Control -->
     <include file="$(find lmf_launch)/launch/lmf_controller.launch" />
