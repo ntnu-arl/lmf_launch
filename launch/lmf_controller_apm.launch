@@ -1,0 +1,11 @@
+<launch>
+    <node name="lmf_control_node" pkg="lmf_controller" type="lmf_control_node" output="screen">
+        <remap from="odometry" to="/mavros/local_position/odom_in_map" />
+        <remap from="range_sensor" to="/mavros/distance_sensor/tfmini" />
+        <param name="use_vehicle_frame" value="true" /> <!-- goal and acc commands are in vehicle frame -->
+        <param name="swap_yaw_rate" value="true" />
+        <!-- <param name="swap_yaw_rate" value="false" /> -->
+        <param name="is_sim" value="false" />
+        <rosparam command="load" file="$(find lmf_launch)/config/lmf_controller.yaml" />
+    </node>    
+</launch>

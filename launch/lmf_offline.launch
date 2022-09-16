@@ -1,8 +1,8 @@
 <launch>
     <param name="use_sim_time" value="true"/>
     <!-- Transforms -->
-    <!-- <include file="$(find lmf_launch)/launch/lmf_static_tf_ros.launch" /> -->
+    <node pkg="tf" type="static_transform_publisher" name="t265_pose_to_link" respawn="true" args="0 0 0 0 0 0 /t265_pose_frame /t265_link 100"/>
 
     <!-- Planning -->
-    <include file="$(find lmf_launch)/launch/lmf_planning_offline.launch" />
+    <!-- <include file="$(find lmf_launch)/launch/lmf_planning_offline.launch" /> -->
 </launch>

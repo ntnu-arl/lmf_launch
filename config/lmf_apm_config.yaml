@@ -67,7 +67,7 @@ imu:
 
 # local_position
 local_position:
-  frame_id: "map"
+  frame_id: world_enu #"map" # this should be ENU frame
   tf:
     send: false
     frame_id: "map"
@@ -110,11 +110,11 @@ setpoint_position:
     frame_id: "map"
     child_frame_id: "target_position"
     rate_limit: 50.0
-  mav_frame: LOCAL_NED
+  mav_frame: BODY_NED #LOCAL_NED
 
 # setpoint_velocity
 setpoint_velocity:
-  mav_frame: LOCAL_NED
+  mav_frame: BODY_NED #LOCAL_NED
 
 # vfr_hud
 # None

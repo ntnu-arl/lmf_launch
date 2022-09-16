@@ -1,6 +1,6 @@
 <launch>
     <arg name="record" default="true"/>
-    <arg name="record_path" value="/home/arl/ROSBAGS/Arducopter" />
+    <arg name="record_path" value="/home/arl/ROSBAGS/RL_planner" />
     <arg name="set_origin_start_delay" default="10.0" />
 
     <!-- Transforms -->
@@ -24,14 +24,15 @@
 
     <!-- Control -->
     <!-- <include file="$(find lmf_launch)/launch/lmf_controller.launch" /> -->
-    <include file="$(find lmf_launch)/launch/lmf_controller_apm.launch" />
+    <include file="$(find lmf_launch)/launch/RL_planner/lmf_controller_apm_RL.launch" /> <!-- use YAW RATE cmd-->
 
     <!-- Planning -->
     <!-- <include file="$(find lmf_launch)/launch/lmf_planning.launch" /> -->
 
     <!-- Recording -->
-    <include if="$(arg record)" file="$(find lmf_launch)/launch/lmf_bag_rec.launch" >
+    <include if="$(arg record)" file="$(find lmf_launch)/launch/RL_planner/lmf_bag_rec_RL.launch" >
         <arg name="record_path" value="$(arg record_path)"/>
     </include>    
     
+    <node pkg="topic_tools" type="drop" name="t265_fisheye_drop" respawn="false" args="/d455/depth/image_rect_raw 1 2 /d455/depth/image_rect_raw_drop" />
 </launch>

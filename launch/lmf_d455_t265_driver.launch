@@ -5,7 +5,11 @@
     <arg name="device_type_camera2"    		default="d4.5"/>		<!-- Note: using regular expression. match D435, D435i, D415... -->
     <arg name="serial_no_camera1"    	    default=""/>
     <arg name="serial_no_camera2"    		default=""/>
-    <arg name="json_file_path"              default=""/>
+    <!-- <arg name="json_file_path"              default=""/> -->
+    <!-- <arg name="json_file_path"              default="/home/arl/tune_corrosion.json"/> -->
+    <arg name="json_file_path"              default="/home/arl/basement_bright.json"/>
+    <!-- <arg name="json_file_path"              default="/home/arl/basement_bright_3.json"/> -->
+    <!-- <arg name="json_file_path"              default="/home/arl/exposure_200_dark.json"/> -->
     <arg name="camera1"              		default="t265"/>
     <arg name="camera2"              		default="d455"/>
     <arg name="tf_prefix_camera1"         default="$(arg camera1)"/>
@@ -45,7 +49,7 @@
         <arg name="json_file_path"    value="$(arg json_file_path)"/>
         <arg name="tf_prefix"		          value="$(arg tf_prefix_camera2)"/>
         <arg name="initial_reset"         value="$(arg initial_reset)"/>
-        <arg name="align_depth"           value="true"/>
+        <arg name="align_depth"           value="false"/>
         <arg name="clip_distance"         value="$(arg clip_distance)"/>       
         <arg name="depth_width"       value="$(arg depth_width)"/>
         <arg name="depth_height"      value="$(arg depth_height)"/>

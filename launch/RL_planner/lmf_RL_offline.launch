@@ -1,0 +1,4 @@
+<launch>
+    <node pkg="topic_tools" type="drop" name="t265_fisheye_drop" respawn="false" args="/d455/depth/image_rect_raw 3 4 /d455/depth/image_rect_raw_drop" />
+    <node pkg="tf" type="static_transform_publisher" name="t265_pose_to_link" respawn="true" args="0 0 0 0 0 0 /t265_pose_frame /t265_link 100"/>
+</launch>
