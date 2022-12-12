@@ -4,8 +4,14 @@
     <node pkg="tf" type="static_transform_publisher" name="world_to_world_enu" respawn="true" args="0 0 0 -1.5707963 0 0 /world /world_enu 100"/>
     <node pkg="tf" type="static_transform_publisher" name="world_vio_to_t265" respawn="true" args="0 0 0 0 0 0 /world_vio /t265_odom_frame 100"/>
 
-    <node pkg="tf" type="static_transform_publisher" name="t265_to_state" respawn="true" args="-0.099 0 0 0 0.383 0 0.924 /t265_link /state 100"/>
-    <node pkg="tf" type="static_transform_publisher" name="state_to_t265" respawn="true" args="0.07 0 0.07 0 -0.3826834 0 0.9238795 /state /t265_link_custom 100"/>
+    <!-- Pitch up 45 degree -->
+    <!-- <node pkg="tf" type="static_transform_publisher" name="t265_to_state" respawn="true" args="-0.099 0 0 0 0.383 0 0.924 /t265_link /state 100"/>
+    <node pkg="tf" type="static_transform_publisher" name="state_to_t265" respawn="true" args="0.07 0 0.07 0 -0.3826834 0 0.9238795 /state /t265_link_custom 100"/> -->
+
+    <!-- Pitch up 5 degree -->
+    <node pkg="tf" type="static_transform_publisher" name="t265_to_state" respawn="true" args="-0.076 0.0 -0.064 0.0 0.044 0.0 0.999 /t265_link /state 100"/>
+    <node pkg="tf" type="static_transform_publisher" name="state_to_t265" respawn="true" args="0.07 0 0.07 0 -0.0436194 0 0.9990482 /state /t265_link_custom 100"/>
+
     <node pkg="tf" type="static_transform_publisher" name="state_to_d455" respawn="true" args="0.09 0.04 0.024 0 0 0 /state /d455_link 100"/>
     <!-- d455_link is ROS frame at left camera -->
     <!-- d455_aligned_depth_to_color_frame is ROS frame at color camera -->
