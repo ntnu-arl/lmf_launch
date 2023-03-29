@@ -7,8 +7,8 @@
         /msf_core/odometry
         /t265/odom/sample
         /d455/depth/image_rect_raw
-        /d455/color/image_raw
         /d455/depth/color/points
+        /d455/color/image_raw_drop
         /mavros/rangefinder/rangefinder
         /mavros/local_position/odom_in_map
         /mavros/imu/data_raw
@@ -19,7 +19,14 @@
         /cmd_velocity
         /lmf/target
         /lmf/vel_viz
+        /latent_space
+        /trajectory
+        /trajectory_mod
+        /trajectory_offline
+        /goal
+        /decoded_image
     "/>
+    <node pkg="topic_tools" type="drop" name="d455_drop" respawn="false" args="/d455/color/image_raw 2 3 /d455/color/image_raw_drop" />
 </launch>
         <!--         
         /tf_static

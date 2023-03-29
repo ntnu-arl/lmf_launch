@@ -1,5 +1,5 @@
 <launch>
-    <arg name="record" default="true"/>
+    <arg name="record" default="false"/>
     <arg name="record_path" value="/home/arl/ROSBAGS/RL_planner" />
     <arg name="set_origin_start_delay" default="10.0" />
 
