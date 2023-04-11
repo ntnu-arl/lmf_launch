@@ -6,12 +6,16 @@
         /tf
         /msf_core/odometry
         /t265/odom/sample
+        /t265/fisheye1/image_raw_skip/compressed
         /d455/depth/image_rect_raw
         /d455/depth/color/points
         /d455/color/image_raw/compressed
+        /d455/gyro/imu_info
+        /d455/gyro/sample
+        /d455/accel/imu_info
+        /d455/accel/sample
         /mavros/rangefinder/rangefinder
         /mavros/local_position/odom_in_map
-        /t265/fisheye1/image_raw_skip/compressed
         /mavros/imu/data_raw
         /mavros/setpoint_raw/attitude
         /mavros/state
@@ -28,7 +32,7 @@
         /decoded_image
     "/>
     <!-- <node pkg="topic_tools" type="drop" name="d455_drop" respawn="false" args="/d455/color/image_raw 2 3 /d455/color/image_raw_drop" /> -->
-    <node pkg="topic_tools" type="drop" name="t265_fisheye_drop" respawn="false" args="/t265/fisheye1/image_raw/compressed 5 6 /t265/fisheye1/image_raw_skip/compressed" />
+    <node pkg="topic_tools" type="drop" name="t265_fisheye_drop" respawn="false" args="/t265/fisheye1/image_raw/compressed 1 2 /t265/fisheye1/image_raw_skip/compressed" />
 </launch>
         <!--         
         /tf_static

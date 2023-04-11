@@ -14,7 +14,7 @@
         /d455/depth/image_rect_raw
         /d455/aligned_depth_to_color/image_raw
         /d455/depth/color/points
-        /d455/color/image_raw
+        /d455/color/image_raw/compressed
         /current_mask
         /detected_objects
         /bounding_boxes

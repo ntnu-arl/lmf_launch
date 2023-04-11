@@ -1,0 +1,39 @@
+<launch>
+    <arg name="record" default="true"/>
+    <arg name="record_path" value="/home/arl/ROSBAGS/VAE" />
+    <arg name="set_origin_start_delay" default="10.0" />
+
+    <!-- Transforms -->
+    <include file="$(find lmf_launch)/launch/lmf_static_tf_ros.launch" />
+
+    <!-- Avionics Communication -->
+    <!-- <include file="$(find lmf_launch)/launch/lmf_px4.launch" /> -->
+    <include file="$(find lmf_launch)/launch/lmf_apm.launch" />
+    <!-- <include file="$(find lmf_launch)/launch/lmf_mavros_control_interface.launch" /> -->
+
+    <!-- Sensors -->
+    <include file="$(find lmf_launch)/launch/lmf_d455_t265_driver.launch" />
+    <include file="$(find lmf_launch)/launch/lmf_t265_tf_to_mavros.launch" >
+        <arg name="target_frame_id" value="world"/>
+        <arg name="source_frame_id" value="state"/>
+    </include>
+    <node pkg="vision_to_mavros" name="set_origin" type="set_origin.py" output="screen" launch-prefix="bash -c 'sleep $(arg set_origin_start_delay); $0 $@' "/>
+    
+    <!-- Estimation -->
+    <!-- <include file="$(find lmf_launch)/launch/lmf_msf.launch" /> --> <!-- use odom from Ardupilot EKF3 instead -->
+
+    <!-- Control -->
+    <!-- <include file="$(find lmf_launch)/launch/lmf_controller.launch" /> -->
+    <include file="$(find lmf_launch)/launch/lmf_controller_apm.launch" />
+
+    <!-- Planning -->
+    <!-- <include file="$(find lmf_launch)/launch/lmf_planning.launch" /> -->
+
+    <!-- Recording -->
+    <include if="$(arg record)" file="$(find lmf_launch)/launch/RL_planner/lmf_bag_rec_RL.launch" >
+        <arg name="record_path" value="$(arg record_path)"/>
+    </include>    
+    
+    <node pkg="topic_tools" type="drop" name="d455_rgb_drop" respawn="false" args="/d455/depth/image_rect_raw 1 2 /d455/depth/image_rect_raw_drop" />
+
+</launch>
