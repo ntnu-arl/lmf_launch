@@ -12,7 +12,9 @@
     <!-- <include file="$(find lmf_launch)/launch/lmf_mavros_control_interface.launch" /> -->
 
     <!-- Sensors -->
-    <include file="$(find lmf_launch)/launch/lmf_d455_t265_driver_mk640x360.launch" />
+    <include file="$(find lmf_launch)/launch/lmf_d455_t265_driver_mk640x360.launch" >
+        <arg name="depth_exposure_lower_roi" value="true"/>
+    </include>
     <include file="$(find lmf_launch)/launch/lmf_t265_tf_to_mavros.launch" >
         <arg name="target_frame_id" value="world"/>
         <arg name="source_frame_id" value="state"/>
